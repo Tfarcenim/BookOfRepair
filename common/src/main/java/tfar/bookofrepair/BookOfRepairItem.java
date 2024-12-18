@@ -1,5 +1,6 @@
 package tfar.bookofrepair;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.item.Item;
@@ -7,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-import tfar.bookofrepair.mixin.ExperienceOrbMixin;
 import tfar.bookofrepair.platform.Services;
 
 import java.util.List;
@@ -22,6 +22,13 @@ public class BookOfRepairItem extends Item {
     public BookOfRepairItem(Properties properties) {
         super(properties);
     }
+
+
+    @Override
+    public boolean isFoil(ItemStack $$0) {
+        return getXP($$0) >= getRequired();
+    }
+
 
     @Override
     public int getBarColor(ItemStack $$0) {
@@ -40,7 +47,7 @@ public class BookOfRepairItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack $$0, @Nullable Level $$1, List<Component> list, TooltipFlag $$3) {
-        list.add(Component.literal("XP: "+getXP($$0)+"/"+getRequired()));
+        list.add(Component.literal("XP: "+getXP($$0)+"/"+getRequired()).withStyle(ChatFormatting.GREEN));
         //list.add(Component.translatable("item.durability", this.getMaxDamage() - this.getDamageValue(), this.getMaxDamage()));
 
         super.appendHoverText($$0, $$1, list, $$3);
