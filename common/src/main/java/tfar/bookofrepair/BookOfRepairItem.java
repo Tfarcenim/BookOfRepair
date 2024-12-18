@@ -47,6 +47,7 @@ public class BookOfRepairItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack $$0, @Nullable Level $$1, List<Component> list, TooltipFlag $$3) {
+        list.add(Component.translatable("enchantment.minecraft.mending"));
         list.add(Component.literal("XP: "+getXP($$0)+"/"+getRequired()).withStyle(ChatFormatting.GREEN));
         //list.add(Component.translatable("item.durability", this.getMaxDamage() - this.getDamageValue(), this.getMaxDamage()));
 

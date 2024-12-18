@@ -22,7 +22,7 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addItem(() -> Init.BOOK_OF_REPAIR,"Book of Repair");
+        addItem(() -> Init.BOOK_OF_REPAIR,"Enchanted Book");
         //addTranslatableComponent(ModCreativeTabs.TITLE,"Nations3");
         //addDefaultBlock(() -> ModBlocks.CLAIMING_TABLE);
         //addDefaultBlock(() -> ModBlocks.DEPOSIT_STATION);
